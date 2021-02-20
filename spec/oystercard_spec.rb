@@ -16,4 +16,9 @@ maximum_balance = Oystercard::MAXIMUM_BALANCE
 oystercard.top_up(maximum_balance)
 expect(oystercard.top_up(1)).to raise_error 'Maximum balance #{maximum_balance}  exceeded'
 end
+it 'takes money from the card'do
+  oystercard = Oystercard.new
+  oystercard.deduct(0)
+it{ is_expect.to respond_to(:deduct).with(1).argument}
+end
 end
