@@ -7,7 +7,13 @@ describe Oystercard do
 
   it 'adds money in the card' do
   oystercard = Oystercard.new
-  oystercard.top_up(3)
-  expect(oystercard.top_up(3)).to eq(1)
+  oystercard.top_up(0)
+  expect(oystercard.top_up(1)).to eq(1)
+end
+it 'raises an error if the maximum balance is exceeded'do
+oystercard = Oystercard.new
+maximum_balance = Oystercard::MAXIMUM_BALANCE
+oystercard.top_up(maximum_balance)
+expect(oystercard.top_up(1)).to raise_error 'Maximum balance #{maximum_balance}  exceeded'
 end
 end
