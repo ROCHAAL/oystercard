@@ -28,5 +28,9 @@ end
   it 'checks if the the card is in use'do
   oystercard = Oystercard.new
   expect(oystercard.in_journey?).to eq(true)
-end 
+end
+it 'checks if the card has been touched in'do
+oystercard = Oystercard.new
+expect(oystercard.touch_in).to eq(true)
+  end  
 end

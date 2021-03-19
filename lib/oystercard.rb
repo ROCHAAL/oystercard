@@ -19,6 +19,10 @@ def deduct(taken_amount) # is the input(argument) necessary here?
 end
 
 def in_journey?
+  true
+end
+
+def touch_in
   true 
 end
 
