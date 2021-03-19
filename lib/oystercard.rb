@@ -18,4 +18,8 @@ def deduct(taken_amount) # is the input(argument) necessary here?
   @balance -= taken_amount
 end
 
+def in_journey?
+  true 
+end
+
 end
