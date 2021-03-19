@@ -1,4 +1,5 @@
 require 'oystercard'
+
 describe Oystercard do
   it ' has a balance'do
     oystercard = Oystercard.new
@@ -19,6 +20,9 @@ end
   expect{oystercard.top_up(1)}.to raise_error ' Maximum balance of 20 exceeded '
 end
 
-
-
+  it 'takes the money from the card'do
+  oystercard = Oystercard.new
+  oystercard.top_up(10)
+  expect(oystercard.deduct(5)).to eq(5)
+  end
 end
