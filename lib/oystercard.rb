@@ -15,7 +15,7 @@ def top_up(amount)
 end
 
 def deduct(taken_amount) # is the input(argument) necessary here?
-  @balance = @balance - taken_amount
+  @balance -= taken_amount
 end
 
 end
