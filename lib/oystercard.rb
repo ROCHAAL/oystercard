@@ -23,7 +23,11 @@ def in_journey?
 end
 
 def touch_in
-  true 
+  true
+end
+
+def touch_out
+  false
 end
 
 end

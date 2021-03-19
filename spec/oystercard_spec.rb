@@ -25,12 +25,21 @@ end
   oystercard.top_up(10)
   expect(oystercard.deduct(5)).to eq(5)
   end
+
   it 'checks if the the card is in use'do
   oystercard = Oystercard.new
   expect(oystercard.in_journey?).to eq(true)
 end
+
 it 'checks if the card has been touched in'do
 oystercard = Oystercard.new
 expect(oystercard.touch_in).to eq(true)
-  end  
+  end
+
+  it ' checks if the card has been touched out'do
+  oystercard = Oystercard.new
+  expect(oystercard.touch_out).to eq(false)
+  end
+
+   
 end
