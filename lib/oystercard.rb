@@ -5,39 +5,38 @@ class Oystercard
 
 attr_reader :balance, :amount
 
-def initialize
+  def initialize
     @balance = 0
     @amount = amount
 
-end
+  end
 
-def top_up(amount)
-  fail ' Maximum balance of 20 exceeded ' if amount + balance > MAXIMUM_BALANCE
-  @balance += amount
+  def top_up(amount)
+    fail ' Maximum balance of 20 exceeded ' if amount + balance > MAXIMUM_BALANCE
+    @balance += amount
+  end
 
+  def deduct(taken_amount) # is the input(argument) necessary here?
+    @balance -= taken_amount
+  end
 
+  def in_journey?
+    true
+  end
 
-end
-
-def deduct(taken_amount) # is the input(argument) necessary here?
-  @balance -= taken_amount
-end
-
-def in_journey?
-  true
-end
-
-def touch_in
-
-   if @balance <= MAXIMUM_BALANCE
+  def touch_in
+    if @balance < MINIMUM_BALANCE #
+      raise 'insufficient balance'
+    elsif @balance >= MAXIMUM_BALANCE  # initially I was putting this argument first, then if is true it will never read the elsif
       true
-   elsif @balance < MINIMUM_BALANCE
-     raise 'insufficient balance'
-   end
-end
+    end
+  end
 
 def touch_out
   false
 end
 
 end
+
+#(Related to touch_in method) To make the test pass, I just changed the ordem of lines 29 and 31 .So the part inside the if will always execute, if the balance is lower than MAXIMUM_BALANCE - even if it's 0 -
+# which means the part inside the elsif will never execute if @balance is less than 10 (the elseif part won't be considered at all, if the if condition is true!)
