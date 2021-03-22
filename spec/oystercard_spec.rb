@@ -31,15 +31,18 @@ end
   expect(oystercard.in_journey?).to eq(true)
 end
 
-it 'checks if the card has been touched in'do
-oystercard = Oystercard.new
-expect(oystercard.touch_in).to eq(true)
-  end
+ it 'checks if the card has been touched in' do
+ oystercard = Oystercard.new
+ oystercard.top_up(10)
+ expect(oystercard.touch_in ).to eq(true)
+   end
 
   it ' checks if the card has been touched out'do
   oystercard = Oystercard.new
   expect(oystercard.touch_out).to eq(false)
   end
-
-   
-end
+ it 'raises an error if the amount in the card is less than £1' do
+   oystercard = Oystercard.new
+   expect{ oystercard.touch_in }.to raise_error 'insufficient balance'
+  end
+ end
