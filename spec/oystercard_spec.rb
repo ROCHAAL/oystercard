@@ -41,9 +41,15 @@ end
   oystercard = Oystercard.new
   expect(oystercard.touch_out).to eq(false)
   end
-  
+
  it 'raises an error if the amount in the card is less than £1' do
    oystercard = Oystercard.new
    expect{ oystercard.touch_in }.to raise_error 'insufficient balance'
+  end
+
+  it 'shows the correct ammount deducted from the card' do
+    oystercard = Oystercard.new
+    oystercard.top_up(10)
+    expect{  oystercard.touch_out }.to change{ oystercard.balance}.by(-1)
   end
  end

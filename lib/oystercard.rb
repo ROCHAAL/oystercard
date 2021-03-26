@@ -17,7 +17,7 @@ attr_reader :balance, :amount
   end
 
   def deduct(taken_amount) # is the input(argument) necessary here?
-    @balance -= taken_amount
+    @balance = @balance -  taken_amount
   end
 
   def in_journey?
@@ -32,11 +32,14 @@ attr_reader :balance, :amount
     end
   end
 
-def touch_out
-  false
-end
+  def touch_out
+    deduct(MINIMUM_BALANCE)
+    @in_journey = false
+
+  end
 
 end
+
 
 #(Related to touch_in method) To make the test pass, I just changed the ordem of lines 29 and 31 .So the part inside the if will always execute, if the balance is lower than MAXIMUM_BALANCE - even if it's 0 -
 # which means the part inside the elsif will never execute if @balance is less than 10 (the elseif part won't be considered at all, if the if condition is true!)
