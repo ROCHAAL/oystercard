@@ -8,7 +8,7 @@ attr_reader :balance, :amount, :entry_station
   def initialize
     @balance = 0
     @amount = amount
-    @entry_station = entry_station
+    @entry_station = []
 
   end
 
@@ -26,6 +26,9 @@ attr_reader :balance, :amount, :entry_station
   end
 
   def touch_in(station)
+
+    @entry_station.push(station)
+
     if @balance < MINIMUM_BALANCE #
       raise 'insufficient balance'
     elsif @balance >= MAXIMUM_BALANCE  # initially I was putting this argument first, then if is true it will never read the elsif
