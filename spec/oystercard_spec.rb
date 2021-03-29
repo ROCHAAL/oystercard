@@ -60,7 +60,8 @@ end
 
   it 'shows from where the journey started' do
     oystercard = Oystercard.new
+    oystercard.top_up(5)
     oystercard.touch_in(station)
-    expect(oystercard.entry_station).to eq(station)
+    expect(oystercard.entry_station[0]).to eq(station)
  end
 end
