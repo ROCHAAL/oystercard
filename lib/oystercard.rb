@@ -3,11 +3,12 @@ class Oystercard
   MAXIMUM_BALANCE = 10
   MINIMUM_BALANCE = 1
 
-attr_reader :balance, :amount
+attr_reader :balance, :amount, :entry_station
 
   def initialize
     @balance = 0
     @amount = amount
+    @entry_station = entry_station
 
   end
 
@@ -24,7 +25,7 @@ attr_reader :balance, :amount
     true
   end
 
-  def touch_in
+  def touch_in(station)
     if @balance < MINIMUM_BALANCE #
       raise 'insufficient balance'
     elsif @balance >= MAXIMUM_BALANCE  # initially I was putting this argument first, then if is true it will never read the elsif
