@@ -3,7 +3,8 @@ require 'oystercard'
 
 
 describe Oystercard do
-
+let(:entry_station) { double :station }
+let(:exit_station)  { double :station }
 let(:station) { double :station }
 
   it ' has a balance'do
@@ -44,7 +45,7 @@ end
 
   it ' checks if the card has been touched out'do
   oystercard = Oystercard.new
-  expect(oystercard.touch_out).to eq(false)
+  expect(oystercard.touch_out(exit_station)).to eq(false)
   end
 
  it 'raises an error if the amount in the card is less than £1' do
@@ -55,13 +56,21 @@ end
   it 'shows the correct ammount deducted from the card' do
     oystercard = Oystercard.new
     oystercard.top_up(10)
-    expect{  oystercard.touch_out }.to change{ oystercard.balance}.by(-1)
+    expect{  oystercard.touch_out(exit_station) }.to change{ oystercard.balance}.by(-1)
   end
 
   it 'shows from where the journey started' do
     oystercard = Oystercard.new
     oystercard.top_up(5)
     oystercard.touch_in(station)
-    expect(oystercard.entry_station[0]).to eq(station)
+    expect(oystercard.entry_station[0]).to eq(station) # could be also eq([station])
+ end
+
+ it 'store exit station' do
+   oystercard = Oystercard.new
+   oystercard.top_up(9)
+   oystercard.touch_in(entry_station)
+   oystercard.touch_out(exit_station)
+   expect(oystercard.exit_station).to eq([exit_station])# also could be exit_station[0]
  end
 end
