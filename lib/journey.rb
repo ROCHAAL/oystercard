@@ -7,22 +7,22 @@ PENALTY_FARE = 6
   def initialize(entry_station, exit_station)
 
     @entry_station = entry_station
-    @exit_station = exit_station
+    @exit_station = true
     @complete = true
 
   end
 
   def finish
-    @exit_station
+    @exit_station == true
   end
 
   def fare
-    if the card has an exit station
-       return the FARE_ZONE_ONE
-     elsif the card hasan't got  the exit station
-        return PENALTY_FARE
+
+    if @exit_station == false
+      return PENALTY_FARE
+    else
+      FARE_ZONE_ONE
     end
-      return
   end
 
   def complete?
@@ -30,3 +30,12 @@ PENALTY_FARE = 6
   end
 
 end
+
+
+
+#if the card has an exit station
+  # return the FARE_ZONE_ONE
+# elsif the card hasan't got  the exit station
+  #  return PENALTY_FARE
+#end
+  #return

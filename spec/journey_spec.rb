@@ -9,10 +9,10 @@ it ' shows the journey history of the card' do
 
  it 'register the end of the journey' do
    journey = Journey.new('entry_station', 'exit_station')
-   expect(journey.finish).to eq('exit_station')
+   expect(journey.finish).to eq(true)
  end
 
- it ' calculates the fare of the journey' do
+ it ' charges the fare if an entry station is given.' do
    journey = Journey.new('entry_station', 'exit_station')
    expect(journey.fare).to eq(Journey::FARE_ZONE_ONE)
 
