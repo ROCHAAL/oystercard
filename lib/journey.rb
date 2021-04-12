@@ -20,8 +20,8 @@ PENALTY_FARE = 6
 
     if @exit_station == false
       return PENALTY_FARE
-    else
-      FARE_ZONE_ONE
+    elsif @entry_station == entry_station
+     return FARE_ZONE_ONE
     end
   end
 

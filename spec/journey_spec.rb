@@ -24,7 +24,7 @@ it ' shows the journey history of the card' do
  end
 
  it 'returns a penalty fare if no exit station given' do
-   journey = Journey.new('entry_station', 'exit_station')
+   p journey = Journey.new('entry_station', 'exit_station')
    expect(journey.fare).to eq(Journey::PENALTY_FARE)
  end
 end
