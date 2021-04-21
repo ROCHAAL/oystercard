@@ -1,20 +1,34 @@
+# require 'journey_log'
+#
+#
+# describe 'JourneyLog' do
+#   let(:journey) {double :journey } # is this refering to the journey class ?
+#
+#
+# it "starts a journey " do
+#   journey_log = JourneyLog.new(journey)
+#    p expect(journey_log).to receive(:start).with(entry_station: station )
+#
+#   end
+# end
 require 'journey_log'
+describe JourneyLog do
 
+  let(:journey){ double :journey } #this may need to have some methods
+  let(:station){ double :station }
+  let(:journey_class){double :journey_class, new: journey}
+  subject {described_class.new(journey_class: journey_class)}
 
-describe 'JourneyLog' do
-  let(:journey_class) {double :journey}
-  let(:journeys) {double :journey}
-  let(:entry_station) {double :journey}
-  let(:station)  { double :station }
-  let(:current_journey) {double:station}
-
-it 'starts a journey'do
-journey_log = JourneyLog.new
-expect(journey_log.start(entry_station)).to eq([entry_station])
-end
-
-it 'returns an incomplete journey'do
-journey_log = JourneyLog.new
-expect(journey_log).to respond_to(:current_journey)
-end
+  describe '#start' do
+     it 'starts a journey' do
+       expect(journey_class).to receive(:new).with(entry_station: station)
+       subject.start(station)
+     end
+  #
+  #   it 'records a journey' do
+  #     allow(journey_class).to receive(:new).and_return journey
+  #     subject.start(station)
+  #     expect(subject.journeys).to include journey
+  #   end
+   end
 end
