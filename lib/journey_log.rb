@@ -1,6 +1,6 @@
 # class JourneyLog
 #
-# attr_reader :journey, :journeys, :entry_station, :station, :current_journey
+
 #   def initialze(journey) # ( is it working as an independency injection ? )
 #     @journey = journey
 #     @journeys = []
@@ -15,12 +15,22 @@
 # end
 
 class JourneyLog
+   attr_reader :journey, :journeys, :entry_station, :station, :current_journey
+
   def initialize(journey_class: Journey )
     @journey_class = journey_class
     @journeys = []
   end
 
   def start(station)
-    @journey_class.new(entry_station: station)
+  p  @journeys << @journey_class.new(entry_station: station)
   end
+
+
+
+  private
+
+   def current_journey
+     @current_journey ||  journey_class.new
+   end
 end
