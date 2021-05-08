@@ -23,14 +23,6 @@ class JourneyLog
   end
 
   def start(station)
-  p  @journeys << @journey_class.new(entry_station: station)
+    @journeys << @journey_class.new(entry_station: station)
   end
-
-
-
-  private
-
-   def current_journey
-     @current_journey ||  journey_class.new
-   end
 end

@@ -20,7 +20,7 @@ describe JourneyLog do
 p  subject {described_class.new(journey_class: journey_class)} #whithout this line the Journey class is called from external
   # describe_class is a method to describea a class ( in this case is it describing JourneyLog??)
   # need to understand line 20
-  
+
   describe '#start' do
      it 'starts a journey' do
        expect(journey_class).to receive(:new).with(entry_station: station)
@@ -33,4 +33,5 @@ p  subject {described_class.new(journey_class: journey_class)} #whithout this li
        expect(subject.journeys).to include journey
      end
    end
+
 end
