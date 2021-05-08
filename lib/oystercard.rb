@@ -38,6 +38,7 @@ attr_reader :balance, :amount, :entry_station, :exit_station
   end
 
   def touch_out(exit_station)
+
     @exit_station.push(exit_station)
 
     deduct(MINIMUM_BALANCE)
