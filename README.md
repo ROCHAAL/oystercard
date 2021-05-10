@@ -1,4 +1,4 @@
-# Oystercard 
+# Oystercard
 
 Makers Academy Week No.2
 
@@ -6,6 +6,7 @@ Oystercard is a program that emulates the Oystercard(it is a payment method for 
 
 ### To run the program
 Download the source code using $ git clone https://github.com/ROCHAAL/oystercard.git
+
 Ruby version 2.7.1
 
 ### Testing
