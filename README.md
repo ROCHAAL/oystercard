@@ -14,7 +14,8 @@ To run all tests, in the terminal, type: rspec
 
 ### Install
 
-Ruby version 
+Ruby version 2.7.1
+To install ruby https://www.ruby-lang.org/en/documentation/installation/
 
 
 
