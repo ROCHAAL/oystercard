@@ -1,4 +1,26 @@
-# oystercard
+# Oystercard Challenge
+
+Makers Academy Week No.2
+
+### Set up
+Download the source code using $ git clone https://github.com/ROCHAAL/oystercard.git
+
+### Testing
+All classes are tested using RSpec.
+
+#### Running Tests
+To run all tests, in the terminal, type: rspec
+
+
+### Install
+
+Ruby version 
+
+
+
+
+### User stories
+
 ```
 In order to use public transport
 As a customer
