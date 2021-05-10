@@ -1,20 +1,23 @@
-# Oystercard Challenge
+# Oystercard 
 
 Makers Academy Week No.2
 
-### Set up
+Oystercard is a program that emulates the Oystercard(it is a payment method for public transport in London in the United Kingdom).   
+
+### To run the program
 Download the source code using $ git clone https://github.com/ROCHAAL/oystercard.git
+Ruby version 2.7.1
 
 ### Testing
-All classes are tested using RSpec.
 
-#### Running Tests
-To run all tests, in the terminal, type: rspec
+$ bundle init
+
+$ rspec --init
+
+$ bundle install
 
 
 ### Install
-
-Ruby version 2.7.1
 
 To install ruby https://www.ruby-lang.org/en/documentation/installation/
 
