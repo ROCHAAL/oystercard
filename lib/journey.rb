@@ -1,4 +1,5 @@
 class Journey
+
 FARE_ZONE_ONE = 5
 PENALTY_FARE = 6
 
@@ -30,12 +31,3 @@ PENALTY_FARE = 6
   end
 
 end
-
-
-
-#if the card has an exit station
-  # return the FARE_ZONE_ONE
-# elsif the card hasan't got  the exit station
-  #  return PENALTY_FARE
-#end
-  #return

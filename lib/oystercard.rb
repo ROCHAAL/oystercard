@@ -18,7 +18,7 @@ attr_reader :balance, :amount, :entry_station, :exit_station
     @balance += amount
   end
 
-  def deduct(taken_amount) # is the input(argument) necessary here?
+  def deduct(taken_amount)
     @balance = @balance -  taken_amount
   end
 
@@ -30,9 +30,9 @@ attr_reader :balance, :amount, :entry_station, :exit_station
 
     @entry_station.push(station)
 
-    if @balance < MINIMUM_BALANCE #
+    if @balance < MINIMUM_BALANCE
       raise 'insufficient balance'
-    elsif @balance >= MAXIMUM_BALANCE  # initially I was putting this argument first, then if is true it will never read the elsif
+    elsif @balance >= MAXIMUM_BALANCE
       true
     end
   end
@@ -47,7 +47,3 @@ attr_reader :balance, :amount, :entry_station, :exit_station
   end
 
 end
-
-
-#(Related to touch_in method) To make the test pass, I just changed the ordem of lines 29 and 31 .So the part inside the if will always execute, if the balance is lower than MAXIMUM_BALANCE - even if it's 0 -
-# which means the part inside the elsif will never execute if @balance is less than 10 (the elseif part won't be considered at all, if the if condition is true!)
